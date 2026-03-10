@@ -40,7 +40,7 @@ This project reproduces OWASP Top 10 SSRF vulnerability.
 
 ---
 
-## 🔧 Environment Info
+## Environment Info
 
 | Item | Value |
 |---|---|
