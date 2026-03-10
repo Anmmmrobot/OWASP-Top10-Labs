@@ -33,5 +33,5 @@ docker run -d --name juice-shop -p 3000:3000 bkimminich/juice-shop
 
 **截图:** <img src="../screenshots/juice_shop_03_home.png" width="750">
 
-* 你应该能看到 Juice Shop 首页（橙色界面）。
+* 已经能看到 Juice Shop 首页。
 * 这表明环境已搭建完成，可以进行 SSRF 漏洞测试。
