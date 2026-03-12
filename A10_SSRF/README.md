@@ -1,75 +1,158 @@
 # A10:2021 - 服务端请求伪造（SSRF）
 
-本项目用于复现 **OWASP Top 10 A10:2021 —— SSRF（Server-Side Request Forgery）漏洞**。  
+## 项目简介
 
-初始实验环境使用 Docker 部署 DVWA，以实现可复现的漏洞研究环境。  
+本项目复现 OWASP Top 10 中 **A10: Server‑Side Request Forgery (SSRF)** 漏洞，基于 OWASP Juice Shop Docker 环境，从红队攻击视角完整演示：
 
-⚠️ 注意：DVWA 本身 **不包含真实的 SSRF 漏洞模块**，后续的 SSRF 漏洞复现将使用 **OWASP Juice Shop** 完成。
+* 漏洞识别
+* 攻击面分析
+* SSRF 利用
+* 内网探测
+* 逆向线索分析
+* 内部接口攻击
 
----
-
-## 项目目标
-
-- 理解 SSRF 漏洞原理
-- 复现真实漏洞利用场景
-- 编写漏洞验证 PoC
-- 分析并提出防护与缓解方案
+目标是构建一条 **真实世界攻击链（Attack Chain）**，而非单点漏洞演示
 
 ---
 
-## 环境搭建（DVWA）
+## 实验环境
 
-### 拉取 Docker 镜像
+* OWASP Juice Shop (Docker)
+* Burp Suite
+* Chrome + Proxy
+* Localhost Lab Environment
 
-<img src="screenshots/env_01_pull_image.png" width="750">
+环境搭建见：
 
----
-
-### DVWA 容器运行
-
-<img src="screenshots/env_02_container_running.png" width="750">
-
----
-
-### DVWA 登录页面
-
-<img src="screenshots/env_03_dvwa_home.png" width="750">
+```
+environment/docker.md
+```
 
 ---
 
-### DVWA 数据库初始化
+## 项目结构
 
-<img src="screenshots/env_04_database_init.png" width="750">
-
----
-
-### DVWA 登录成功
-
-<img src="screenshots/env_05_login_success.png" width="750">
-
----
-
-## 环境信息
-
-| 项目 | 内容 |
-|---|---|
-| 平台 | Docker |
-| 目标应用 | DVWA（仅用于环境搭建） |
-| 端口 | 8080 |
-| 访问地址 | http://localhost:8080 |
+```
+A10_SSRF
+│
+├── environment      # 实验环境搭建
+├── vulnerability    # 漏洞原理与攻击面分析
+├── exploit          # 利用过程与PoC
+└── screenshots      # 实验截图
+```
 
 ---
 
-## SSRF 真实漏洞复现
+## 攻击链概览（Red Team Kill Chain）
 
-> ⚠️ DVWA 不包含 SSRF 漏洞模块；后续步骤将使用 **OWASP Juice Shop** 或其他专门的 SSRF 靶场进行漏洞复现。
+```
+User Controlled URL
+        ↓
+Server Fetch Resource
+        ↓
+SSRF Primitive
+        ↓
+Internal Service Discovery
+        ↓
+Sensitive File Discovery (/ftp)
+        ↓
+Reverse Engineering Hint
+        ↓
+Internal API Invocation
+        ↓
+Privilege Bypass
+        ↓
+Challenge Solved
+```
 
 ---
 
-## 项目进度
+## 核心漏洞点
 
-✅ 环境搭建完成  
-⬜ SSRF 漏洞分析（Juice Shop）  
-⬜ 漏洞利用与 Payload 测试  
-⬜ PoC 编写  
-⬜ 漏洞防护分析
+接口：
+
+```
+POST /profile/image/url
+```
+
+参数：
+
+```
+imageUrl
+```
+
+服务器直接请求用户提供的 URL，未进行：
+
+* 内网地址过滤
+* 协议限制
+* 访问控制验证
+
+导致 SSRF
+
+---
+
+## 最终 Exploit Payload
+
+```
+imageUrl=http://localhost:3000/solve/challenges/server-side?key=tRy_H4rd3r_n0thIng_iS_Imp0ssibl3
+```
+
+效果：
+
+* 服务器以 localhost 身份访问内部接口
+* 绕过访问限制
+* 成功触发 SSRF Challenge
+
+---
+
+## 技术要点
+
+本实验覆盖真实 SSRF 利用技术：
+
+* Blind SSRF Timing Analysis
+* Internal Network Enumeration
+* Access Control Bypass
+* Reverse Engineering Clue Usage
+* Internal API Abuse
+
+---
+
+## 学习价值
+
+该实验展示了 SSRF 在真实攻击中的典型用途：
+
+| 场景      | 现实攻击 |
+| ------- | ---- |
+| 内网扫描    | ✔    |
+| 调内部 API | ✔    |
+| 权限绕过    | ✔    |
+| 云环境攻击   | ✔    |
+
+---
+
+## 截图说明
+
+`screenshots/` 包含：
+
+* SSRF 时间差验证
+* FTP 内网访问
+* Burp Exploit 请求
+* Challenge 成功界面
+
+---
+
+## 免责声明
+
+本项目仅用于：
+
+* Web 安全学习
+* 漏洞研究
+* 防御能力提升
+
+请勿用于非法用途。
+
+---
+
+## 作者
+
+Security Lab Practice — OWASP Top10 Series
