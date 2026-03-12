@@ -46,23 +46,23 @@ A10_SSRF
 ## 攻击链概览（Red Team Kill Chain）
 
 ```
-User Controlled URL
+攻击者控制输入 URL
         ↓
-Server Fetch Resource
+服务器 Fetch 访问指定的URL
         ↓
-SSRF Primitive
+利用 SSRF 原理
         ↓
-Internal Service Discovery
+内部服务发现
         ↓
-Sensitive File Discovery (/ftp)
+隐藏文件目录 (/ftp)
         ↓
-Reverse Engineering Hint
+逆向分析线索 (encrypt.pyc)
         ↓
-Internal API Invocation
+找到内部隐藏 API 接口
         ↓
-Privilege Bypass
+权限绕过 (服务器访问url 绕过前端验证)
         ↓
-Challenge Solved
+挑战解决
 ```
 
 ---
@@ -109,11 +109,11 @@ imageUrl=http://localhost:3000/solve/challenges/server-side?key=tRy_H4rd3r_n0thI
 
 本实验覆盖真实 SSRF 利用技术：
 
-* Blind SSRF Timing Analysis
-* Internal Network Enumeration
-* Access Control Bypass
-* Reverse Engineering Clue Usage
-* Internal API Abuse
+* Blind SSRF 时序分析
+* 内部网络扫描
+* 访问控制绕过
+* 逆向分析线索
+* 内部API滥用
 
 ---
 
@@ -155,4 +155,4 @@ imageUrl=http://localhost:3000/solve/challenges/server-side?key=tRy_H4rd3r_n0thI
 
 ## 作者
 
-Security Lab Practice — OWASP Top10 Series
+Anmmmrobot
