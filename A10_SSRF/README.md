@@ -1,73 +1,75 @@
-# A10:2021 - Server-Side Request Forgery (SSRF)
+# A10:2021 - 服务端请求伪造（SSRF）
 
-This project reproduces the **OWASP Top 10 A10:2021 SSRF vulnerability**.  
-The initial environment is built using DVWA in Docker for reproducible setup.  
-⚠️ Note: DVWA itself does not include a real SSRF module; real SSRF reproduction will use **OWASP Juice Shop** in later steps.
+本项目用于复现 **OWASP Top 10 A10:2021 —— SSRF（Server-Side Request Forgery）漏洞**。  
 
----
+初始实验环境使用 Docker 部署 DVWA，以实现可复现的漏洞研究环境。  
 
-## Goals
-
-- Understand SSRF principles
-- Reproduce real vulnerability scenarios
-- Develop Proof of Concept (PoC)
-- Provide mitigation strategies
+⚠️ 注意：DVWA 本身 **不包含真实的 SSRF 漏洞模块**，后续的 SSRF 漏洞复现将使用 **OWASP Juice Shop** 完成。
 
 ---
 
-## Environment Setup (DVWA)
+## 项目目标
 
-### Docker Image Pulled
+- 理解 SSRF 漏洞原理
+- 复现真实漏洞利用场景
+- 编写漏洞验证 PoC（Proof of Concept）
+- 分析并提出防护与缓解方案
+
+---
+
+## 环境搭建（DVWA）
+
+### 拉取 Docker 镜像
 
 <img src="screenshots/env_01_pull_image.png" width="750">
 
 ---
 
-### DVWA Container Running
+### DVWA 容器运行
 
 <img src="screenshots/env_02_container_running.png" width="750">
 
 ---
 
-### DVWA Login Page
+### DVWA 登录页面
 
 <img src="screenshots/env_03_dvwa_home.png" width="750">
 
 ---
 
-### DVWA Database Initialization
+### DVWA 数据库初始化
 
 <img src="screenshots/env_04_database_init.png" width="750">
 
 ---
 
-### DVWA Login Success
+### DVWA 登录成功
 
 <img src="screenshots/env_05_login_success.png" width="750">
 
 ---
 
-## Environment Information
+## 环境信息
 
-| Item | Value |
+| 项目 | 内容 |
 |---|---|
-| Platform | Docker |
-| Target Application | DVWA (Environment Setup Only) |
-| Port | 8080 |
-| Access URL | http://localhost:8080 |
+| 平台 | Docker |
+| 目标应用 | DVWA（仅用于环境搭建） |
+| 端口 | 8080 |
+| 访问地址 | http://localhost:8080 |
 
 ---
 
-## SSRF Real Vulnerability Reproduction
+## SSRF 真实漏洞复现
 
-> ⚠️ DVWA does not include SSRF; the following steps will use **OWASP Juice Shop** or other dedicated SSRF labs to reproduce the vulnerability.
+> ⚠️ DVWA 不包含 SSRF 漏洞模块；后续步骤将使用 **OWASP Juice Shop** 或其他专门的 SSRF 靶场进行漏洞复现。
 
 ---
 
-## Project Status
+## 项目进度
 
-✅ Environment setup completed  
-⬜ SSRF vulnerability analysis (Juice Shop)  
-⬜ Exploitation & payload testing  
-⬜ PoC development  
-⬜ Mitigation analysis
+✅ 环境搭建完成  
+⬜ SSRF 漏洞分析（Juice Shop）  
+⬜ 漏洞利用与 Payload 测试  
+⬜ PoC 编写  
+⬜ 漏洞防护分析
