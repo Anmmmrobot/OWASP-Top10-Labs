@@ -2,7 +2,7 @@
 
 ## 项目简介
 
-本项目复现 OWASP Top 10 中 **A10: Server‑Side Request Forgery (SSRF)** 漏洞，基于 OWASP Juice Shop Docker 环境，从红队攻击视角完整演示：
+本项目复现 OWASP Top 10 中 **A10: Server‑Side Request Forgery (SSRF)** 漏洞，基于 OWASP Juice Shop Docker 环境，从红队攻击视角演示：
 
 * 漏洞识别
 * 攻击面分析
@@ -43,7 +43,7 @@ A10_SSRF
 
 ---
 
-## 攻击链概览（Red Team Kill Chain）
+## 攻击链概览
 
 ```
  攻击者控制输入 URL
