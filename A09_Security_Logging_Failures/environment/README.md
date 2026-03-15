@@ -8,7 +8,6 @@
 
 - 已安装 [Docker Desktop](https://www.docker.com/products/docker-desktop)（Windows/macOS）
 - Windows 用户建议开启 WSL2 backend
-- 基础命令行操作能力（PowerShell / Terminal）
 - 克隆本仓库到本地
 
 ```powershell
