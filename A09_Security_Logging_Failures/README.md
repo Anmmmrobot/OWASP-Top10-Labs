@@ -30,7 +30,7 @@ http://localhost:5000
 - 默认 Flask 日志只记录 HTTP 请求，不记录用户名、IP、尝试次数等
 - 攻击者可以通过暴力破解登录成功，系统无法监控或报警
 
-## 漏洞复现过程
+## 三、漏洞复现过程
 ### 1.登录界面
 访问：
 ```powershell
@@ -61,3 +61,12 @@ python brute_force.py
 
 ### 3.实验截图
 - enter_login_interface.png：实验服务器环境搭建
+- environment_set_up.png：登录界面环境
+- login_success.png：暴力破解成功返回信息
+- no_logs.png：容器日志没有安全事件记录
+
+## 四、漏洞原因分析
+- 应用缺乏安全日志记录机制
+- 登录失败、异常操作没有触发事件
+- 没有限速或报警机制
+- Flask 默认访问日志无法替代安全监控
