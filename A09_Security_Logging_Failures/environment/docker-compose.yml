@@ -1,1 +1,7 @@
+version: '3'
 
+services:
+  a09-lab:
+    build: ./vulnerable_app
+    ports:
+      - "5000:5000"
