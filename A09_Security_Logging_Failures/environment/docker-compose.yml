@@ -1,7 +1,14 @@
-version: '3'
+version: "3.9"
 
 services:
-  a09-lab:
-    build: ./vulnerable_app
+  vulnerable_app:
+    image: vulnerable_app:latest
+    build:
+      context: ./vulnerable_app
+      dockerfile: Dockerfile
     ports:
       - "5000:5000"
+    volumes:
+      - ./vulnerable_app:/app
+    working_dir: /app
+    command: python app.py
