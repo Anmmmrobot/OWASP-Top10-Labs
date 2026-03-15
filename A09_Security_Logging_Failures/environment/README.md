@@ -32,5 +32,5 @@ python app.py        # 启动 Flask
 ```
 - 浏览器访问：
 ```powershell
-http://localhost:5000
+http://localhost:5000/login
 ```
