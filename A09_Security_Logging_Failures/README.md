@@ -58,3 +58,6 @@ python brute_force.py
 - 172.17.0.1 - - [15/Mar/2026 08:53:40] "POST /login HTTP/1.1" 200 -
 
 **注意：Flask 日志仅显示 HTTP 状态码，没有记录用户名、IP 或失败次数，这就是 安全日志和监控失败**
+
+### 3.实验截图
+- enter_login_interface.png：实验服务器环境搭建
