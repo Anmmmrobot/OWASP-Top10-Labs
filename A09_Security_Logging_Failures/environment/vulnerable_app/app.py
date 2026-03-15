@@ -13,9 +13,9 @@ def login():
     username = request.json.get("username")
     password = request.json.get("password")
 
-    # ❌ 没有日志
-    # ❌ 没有失败记录
-    # ❌ 没有限速
+    # 没有日志
+    # 没有失败记录
+    # 没有限速
 
     if username in users and users[username] == password:
         return jsonify({"msg": "login success"})
