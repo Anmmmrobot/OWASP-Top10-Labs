@@ -13,7 +13,7 @@
 * 目标环境：Docker 容器（Linux）
 * Web 框架：Flask
 * 漏洞接口：/deserialize
-
+<img src="screenshots/environment_set_up.png" alt="环境搭建" width="400">
 ---
 
 ## 三、漏洞原理分析
@@ -74,7 +74,9 @@ data=<base64_payload>
 root
 ```
 
-证明漏洞存在。
+证明漏洞存在<br />
+(图例为执行命令：whoami    ls    cat /etc/passwd)
+<img src="screenshots/attack_success.png" alt="成功利用反序列化执行命令" width="700">
 
 ---
 
@@ -118,6 +120,7 @@ bash-5.1#
 成功获取目标容器交互式 shell
 
 ---
+<img src="screenshots/attack_for_shell.png" alt="反弹shell获取" width="800">
 
 ## 五、攻击结果
 
