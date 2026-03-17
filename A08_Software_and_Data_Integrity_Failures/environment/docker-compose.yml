@@ -1,1 +1,7 @@
+version: '3'
 
+services:
+  vulnerable-app:
+    build: ./app
+    ports:
+      - "5000:5000"
