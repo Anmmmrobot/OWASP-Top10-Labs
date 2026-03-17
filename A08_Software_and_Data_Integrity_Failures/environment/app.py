@@ -15,7 +15,7 @@ def deserialize():
 
     try:
         decoded = base64.b64decode(data)
-        obj = pickle.loads(decoded)   # 漏洞核心
+        obj = pickle.loads(decoded)   # 漏洞核心,用户可以控制服务器执行任意 Python 对象,本质是远程代码执行 RCE 入口
         return f"Deserialized: {obj}"
     except Exception as e:
         return f"Error: {str(e)}"
