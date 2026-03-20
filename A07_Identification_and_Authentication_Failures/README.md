@@ -4,7 +4,7 @@
 
 ## 项目简介
 
-本项目复现 **OWASP Top 10 2021 – A07：Identification and Authentication Failures（身份识别与认证失败）** 漏洞类别，并以**红队攻击链**的方式进行完整实践，而非简单的单点漏洞演示。
+本项目复现 **OWASP Top 10 2021 – A07：Identification and Authentication Failures（身份识别与认证失败）** 漏洞类别，并以**红队攻击链**的方式进行完整实践。
 
 项目通过构建一个存在缺陷的 JWT 认证系统，展示攻击者如何从身份认证弱点出发，最终实现**管理员账户接管**。
 
