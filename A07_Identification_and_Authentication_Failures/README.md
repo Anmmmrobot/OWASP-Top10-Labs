@@ -40,7 +40,7 @@ OWASP Top 10（2021）
 ## 项目结构
 
 ```id="3mlp0b"
-A07_<Vulnerability_Name>/
+A07_Identification_and_Authentication_Failures/
 │
 ├── environment/        # 漏洞运行环境（Docker 一键部署）
 ├── vulnerability/      # 漏洞应用源码与原理分析
