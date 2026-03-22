@@ -1,4 +1,4 @@
-# A06:2021 — 脆弱和过时的组件（Vulnerable & Outdated Components）
+# A06:2021 — 脆弱和过时的组件（Vulnerable and Outdated Components）
 
 ---
 
