@@ -1,1 +1,7 @@
-
+services:
+  a06-vulnerable-app:
+    build: ./app
+    container_name: owasp-a06
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
