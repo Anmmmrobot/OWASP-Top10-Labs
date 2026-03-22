@@ -1,10 +1,10 @@
-# OWASP Top10 A06 — Vulnerable & Outdated Components（Log4Shell）
+# A06:2021 — 脆弱和过时的组件（Vulnerable & Outdated Components）
 
 ---
 
 ## 一、项目简介
 
-本项目用于复现 **OWASP Top 10 2021 — A06: Vulnerable and Outdated Components（使用存在漏洞或过时的组件）**，通过构建一个包含 **Log4Shell（CVE‑2021‑44228）漏洞** 的 Java Web 应用，从红队攻击视角演示漏洞的发现、利用与验证过程。
+本项目用于复现 **OWASP Top 10 2021 — A06: Vulnerable and Outdated Components（Log4Shell）**，通过构建一个包含 **Log4Shell（CVE‑2021‑44228）漏洞** 的 Java Web 应用，从红队攻击视角演示漏洞的发现、利用与验证过程。
 
 实验目标：
 
