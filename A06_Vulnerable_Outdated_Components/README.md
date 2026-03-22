@@ -68,7 +68,7 @@ Log4j 将自动：
 
 ---
 
-## 五、漏洞环境启动（environment）
+## 五、漏洞环境启动
 
 进入环境目录：
 
@@ -104,7 +104,7 @@ Hello test
 
 ---
 
-## 六、获取 marshalsec 插件（必须步骤）
+## 六、获取 marshalsec 插件
 
 本实验需要 `marshalsec` 生成 LDAP 引用服务器。
 
@@ -176,7 +176,7 @@ docker rm -f marshalsec-build
 
 ---
 
-## 七、漏洞利用流程（exploit）
+## 七、漏洞利用流程
 
 ### Step 1：启动 LDAP 恶意服务
 
@@ -234,7 +234,7 @@ GET /Evil.class
 
 ---
 
-## 九、截图要求（screenshots）
+## 九、实验截图
 
 截图统一存放：
 
