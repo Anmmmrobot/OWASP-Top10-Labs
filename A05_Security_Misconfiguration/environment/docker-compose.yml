@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  a05:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: owasp-a05
+    ports:
+      - "8085:8080"
