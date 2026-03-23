@@ -141,7 +141,7 @@ curl http://localhost:8085/actuator/heapdump -o heapdump.hprof
 ```
 
 包含 session、token、配置及敏感数据。<br />
-注：实际操作中可选择不分析以避免内存占用过大。
+注：此操作中会占用大量内存
 
 
 
