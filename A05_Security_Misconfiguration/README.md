@@ -110,95 +110,78 @@ Admin Panel Access : admin
 
 5\. 信息泄露
 
-
-
 访问调试接口：
 
-
-
+```bash
 curl http://localhost:8085/debug
-
-
+```
 
 返回环境变量和运行信息，例如：
 
-
-
+```bash
 PATH, JAVA\_HOME, HOSTNAME, LANGUAGE
-
-
+```
 
 访问环境配置：
 
-
-
+```bash
 curl http://localhost:8085/actuator/env
+```
 
-
-
-可获取数据库密码、API key、内部 token 等敏感信息。
-
+可获取数据库密码、API key、内部 token 等敏感信息。<br />
+<br />
 
 
 6\. Heapdump 下载（高危）
 
-
-
 可下载完整 JVM 内存：
 
-
-
+```bash
 curl http://localhost:8085/actuator/heapdump -o heapdump.hprof
+```
 
-
-
-包含 session、token、配置及敏感数据。
-
-
-
+包含 session、token、配置及敏感数据。<br />
 注：实际操作中可选择不分析以避免内存占用过大。
 
 
 
-漏洞总结
+## 漏洞总结
 
-漏洞原因
+### 漏洞原因
 
-Spring Boot Actuator 端点未在生产环境中关闭
+\- Spring Boot Actuator 端点未在生产环境中关闭
 
-管理接口 /admin 无认证控制
+\- 管理接口 /admin 无认证控制
 
-Debug 接口未禁用，环境信息暴露
+\- Debug 接口未禁用，环境信息暴露
 
-参数信任错误导致权限绕过
+\- 参数信任错误导致权限绕过<br />
 
-风险影响
+### 风险影响
 
-敏感信息泄露（密码、token、内部配置）
+\- 敏感信息泄露（密码、token、内部配置）
 
-管理权限被未授权用户获取
+\- 管理权限被未授权用户获取
 
-可能进一步导致系统接管或数据泄露
+\- 可能进一步导致系统接管或数据泄露<br />
 
-OWASP 分类
+### OWASP 分类
 
-A05: Security Misconfiguration（安全配置错误）
+\- A05: Security Misconfiguration（安全配置错误）
 
-修复建议
+## 修复建议
 
-禁用或限制 Actuator 端点访问，仅限可信网络或认证用户
+- 禁用或限制 Actuator 端点访问，仅限可信网络或认证用户
 
-对管理接口实施严格身份验证与访问控制
+- 对管理接口实施严格身份验证与访问控制
 
-禁止生产环境开启调试接口 /debug
+- 禁止生产环境开启调试接口 /debug
 
-不在 URL 参数中直接信任用户身份信息
+- 不在 URL 参数中直接信任用户身份信息
 
-定期检查生产环境配置，确保默认配置被安全覆盖
+- 定期检查生产环境配置，确保默认配置被安全覆盖
 
-参考链接
+## 参考链接
 
-OWASP Top 10 - 2021 A05 Security Misconfiguration
-
-Spring Boot Actuator 官方文档
-
+\- OWASP Top 10 - 2021 A05 Security Misconfiguration
+\- Spring Boot Actuator 官方文档
