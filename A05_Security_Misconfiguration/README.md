@@ -1,4 +1,4 @@
-# A05:2021 —— Security Misconfiguration（安全配置错误）
+# A05:2021 — Security Misconfiguration（安全配置错误）
 
 
 ## 项目概述
