@@ -1,0 +1,17 @@
+{
+  "users": {
+    "admin": {
+      "role": "admin",
+      "secret": "FLAG{super_secret_flag}",
+      "api_key": "APIKEY-123456"
+    },
+    "alice": {
+      "role": "user",
+      "secret": "user_secret_alice"
+    },
+    "bob": {
+      "role": "user",
+      "secret": "user_secret_bob"
+    }
+  }
+}
