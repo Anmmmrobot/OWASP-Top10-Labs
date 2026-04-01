@@ -77,24 +77,17 @@ curl http://127.0.0.1:5000/api/users
 
 ## 4. 漏洞复现
 
+/exploit/exploit.py 提供自动化攻击示例，可抓取所有用户敏感数据，包括密码和信用卡号
 
+### 执行示例：
 
-/exploit/exploit.py 提供自动化攻击示例，可抓取所有用户敏感数据，包括密码和信用卡号。
-
-
-
-执行示例：
-
-
-
+```
 python exploit.py
+```
 
+### 输出示例：
 
-
-输出示例：
-
-
-
+```bash
 \[+] Leaked Users:
 
 \- alice | alice123 | 4111111111111111
@@ -102,52 +95,40 @@ python exploit.py
 \- bob   | bob123   | 5555555555554444
 
 \- admin | admin123 | 378282246310005
+```
 
-5\. 漏洞分析
-
-
+## 5. 漏洞分析
 
 详细分析见 /vulnerability/A03\_analysis.md，包括：
 
+- 漏洞根本原因
 
+- 攻击场景
 
-漏洞根本原因
+- CVSS 风险评估
 
-攻击场景
+- 安全设计建议
 
-CVSS 风险评估
+### 主要建议：
 
-安全设计建议
+- 强制身份认证
 
+- 密码哈希存储
 
+- 敏感字段屏蔽
 
-主要建议：
+- 数据加密
 
+- 权限控制
 
+- 遵循最小权限原则
 
-强制身份认证 (Authentication)
-
-密码哈希存储 (Hash Passwords)
-
-敏感字段屏蔽 (Mask Sensitive Fields)
-
-数据加密 (Encrypt Sensitive Data)
-
-权限控制 (Access Control)
-
-遵循最小权限原则 (Principle of Least Data Exposure)
-
-6\. 截图说明
-
-
+## 6. 截图说明
 
 /screenshots 包含：
 
+- 数据抓取演示截图
 
+- 攻击流程图
 
-数据抓取演示截图
-
-攻击流程图
-
-数据流示意图
-
+- 数据流示意图
