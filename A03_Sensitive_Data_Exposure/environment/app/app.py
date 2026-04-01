@@ -4,7 +4,6 @@ import time
 
 app = Flask(__name__)
 
-# 演示用 secret key（不用 Fernet）
 SECRET_KEY = b'my_demo_secret_key'
 
 # 数据库连接
