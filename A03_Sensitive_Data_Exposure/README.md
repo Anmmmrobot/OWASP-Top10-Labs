@@ -1,118 +1,81 @@
-A03:2021 -- 敏感数据暴露 (Sensitive Data Exposure)
+# A03:2021 -- 敏感数据暴露 (Sensitive Data Exposure)
 
-1\. 项目结构
+## 1. 项目结构
 
-/A03\_Sensitive\_Data\_Exposure
-
+```
+A03_Sensitive_Data_Exposure
 │
-
 ├─ /environment                # Docker 环境及依赖
-
 │   ├─ Dockerfile
-
-│   ├─ requirements\_linux/    # 离线 Python wheel 文件
-
+│   ├─ requirements_linux/    # 离线 Python wheel 文件
 │   ├─ app/                   # Flask 项目代码
-
 │   │   ├─ app.py
-
 │   │   ├─ config.py
-
 │   │   └─ templates/
-
-│   └─ init\_db.sql            # 数据库初始化 SQL
-
+│   └─ init_db.sql            # 数据库初始化 SQL
 │
-
 ├─ /exploit                   # 漏洞复现脚本
-
 │   └─ exploit.py
-
 │
-
 ├─ /vulnerability             # 漏洞分析说明
-
-│   └─ A03\_analysis.md
-
+│   └─ A03_analysis.md
 │
-
 └─ /screenshots               # 漏洞复现截图及流程图
+│
+└─ README.md  
+```
 
-2\. 项目说明
+## 2. 项目说明
 
+本项目演示 OWASP Top 10 A03:2021 Sensitive Data Exposure 漏洞
 
+### 漏洞特征：
 
-本项目演示 OWASP Top 10 A03:2021 Sensitive Data Exposure 漏洞。
+- API 未做身份认证或权限控制
+- 明文存储敏感信息（密码、信用卡号）
+- 返回数据过度暴露，违反最小权限原则
 
+实验环境基于**Docker + Flask + MySQL** 搭建，并提供离线依赖，支持在无网络环境下构建。
 
-
-漏洞特征：
-
-
-
-API 未做身份认证或权限控制
-
-明文存储敏感信息（密码、信用卡号）
-
-返回数据过度暴露，违反最小权限原则
-
-
-
-实验环境基于 Docker + Flask + MySQL 搭建，并提供离线依赖，支持在无网络环境下构建。
-
-
-
-3\. 环境搭建
-
-
+## 3. 环境搭建
 
 进入 environment 目录：
 
-
-
+```
 cd environment
-
-
+```
 
 构建 Docker 镜像（离线安装依赖）：
 
-
-
+```
 docker build -t owasp\_a03:demo .
-
-
+```
 
 启动 MySQL 容器：
 
-
-
+```
 docker run -d --name a03\_mysql -e MYSQL\_ROOT\_PASSWORD=root -p 3306:3306 mysql:5.7
-
-
+```
 
 启动 Web 容器：
 
-
-
+```
 docker run -d --name a03\_web --link a03\_mysql:mysql -p 5000:5000 owasp\_a03:demo
-
-
+```
 
 检查容器状态：
 
-
-
+```
 docker ps
-
-
+```
 
 测试 API：
 
-
-
+```
 curl http://127.0.0.1:5000/api/users
+```
 
-4\. 漏洞复现
+## 4. 漏洞复现
 
 
 
