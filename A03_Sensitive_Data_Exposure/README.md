@@ -1,4 +1,4 @@
-# A03:2021 -- 敏感数据暴露 (Sensitive Data Exposure)
+# A03:2021 — 敏感数据暴露 (Sensitive Data Exposure)
 
 ## 1. 项目结构
 
@@ -48,19 +48,19 @@ cd environment
 构建 Docker 镜像（离线安装依赖）：
 
 ```
-docker build -t owasp\_a03:demo .
+docker build -t owasp_a03:demo .
 ```
 
 启动 MySQL 容器：
 
 ```
-docker run -d --name a03\_mysql -e MYSQL\_ROOT\_PASSWORD=root -p 3306:3306 mysql:5.7
+docker run -d --name a03_mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 mysql:5.7
 ```
 
 启动 Web 容器：
 
 ```
-docker run -d --name a03\_web --link a03\_mysql:mysql -p 5000:5000 owasp\_a03:demo
+docker run -d --name a03_web --link a03_mysql:mysql -p 5000:5000 owasp_a03:demo
 ```
 
 检查容器状态：
