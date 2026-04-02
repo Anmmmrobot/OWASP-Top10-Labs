@@ -65,7 +65,9 @@ A02_Cryptographic_Failures
 
 应用中使用硬编码密钥：
 
+```
 JWT_SECRET = "secret123"
+```
 
 问题：
 
