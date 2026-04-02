@@ -5,11 +5,7 @@ import datetime
 
 app = Flask(__name__)
 
-# ==============================
-# OWASP A02 漏洞点 1：
-# 硬编码弱 JWT 密钥（极易泄露）
-# ==============================
-JWT_SECRET = "secret123"   # ❌ 弱密钥
+JWT_SECRET = "secret123"   # 弱密钥
 JWT_ALG = "HS256"
 
 DB = "users.db"
@@ -17,7 +13,6 @@ DB = "users.db"
 
 def get_db():
     return sqlite3.connect(DB)
-
 
 # ==============================
 # 登录接口
@@ -32,7 +27,7 @@ def login():
     conn = get_db()
     cur = conn.cursor()
 
-    # ❌ 明文密码存储与比较
+    # 明文密码存储与比较
     cur.execute(
         "SELECT id, username FROM users WHERE username=? AND password=?",
         (username, password),
@@ -55,7 +50,6 @@ def login():
 
     return jsonify({"token": token})
 
-
 # ==============================
 # 用户信息接口
 # ==============================
@@ -77,7 +71,6 @@ def profile():
         "role": data["role"]
     })
 
-
 # ==============================
 # 管理员接口（目标）
 # ==============================
@@ -95,7 +88,7 @@ def admin():
     except Exception:
         return jsonify({"msg": "invalid token"}), 403
 
-    # ❌ 仅依赖 JWT role 字段
+    # 仅依赖 JWT role 字段
     if data.get("role") != "admin":
         return jsonify({"msg": "forbidden"}), 403
 
