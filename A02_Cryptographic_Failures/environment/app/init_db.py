@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS users(
 )
 """)
 
-# ❌ 明文密码（A02）
+# 明文密码（A02）
 users = [
     ("alice", "alice123"),
     ("bob", "bob123"),
