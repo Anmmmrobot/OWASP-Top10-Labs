@@ -1,0 +1,8 @@
+services:
+  a02-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: owasp_a02_app
+    ports:
+      - "5000:5000"
