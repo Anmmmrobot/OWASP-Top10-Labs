@@ -140,11 +140,13 @@ python exploit.py
 
 终端将输出：
 
+```
 Secret FOUND: secret123  
 
 Admin token generated  
 
 FLAG{OWASP_A02_CRYPTOGRAPHIC_FAILURE}
+```
 
 说明攻击成功。
 
@@ -191,9 +193,7 @@ FLAG{OWASP_A02_CRYPTOGRAPHIC_FAILURE}
 
 1. 使用高强度随机密钥
 
-示例：
-
-openssl rand -hex 32
+示例：openssl rand -hex 32
 
 2. 使用环境变量存储密钥
 
