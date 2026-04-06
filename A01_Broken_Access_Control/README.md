@@ -34,20 +34,20 @@
 
 ## 三、漏洞说明
 
-漏洞名称：Broken Access Control
-OWASP 分类：A01:2021
+**漏洞名称**：Broken Access Control
+**OWASP 分类**：A01:2021
 
-漏洞核心问题：
+**漏洞核心问题**：
 
 服务器未对资源访问执行 Object-Level Authorization 校验，导致已认证用户可以访问其他用户的数据资源
 
-攻击类型：
+**攻击类型**：
 
 Horizontal Privilege Escalation
 
-攻击方式：
+**攻击方式**：
 
-修改 API 中的资源 ID 实现越权访问。
+修改 API 中的资源 ID 实现越权访问
 
 ---
 
