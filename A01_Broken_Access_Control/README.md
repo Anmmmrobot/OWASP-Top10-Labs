@@ -35,6 +35,7 @@
 ## 三、漏洞说明
 
 **漏洞名称**：Broken Access Control
+
 **OWASP 分类**：A01:2021
 
 **漏洞核心问题**：
