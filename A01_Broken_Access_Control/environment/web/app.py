@@ -40,10 +40,6 @@ def dashboard():
 def records_page():
     return render_template("records.html")
 
-
-# =========================
-#  A01 VULNERABLE API
-# =========================
 @app.route("/api/records/<int:rid>")
 def get_record(rid):
 
