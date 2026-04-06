@@ -54,25 +54,38 @@ Horizontal Privilege Escalation
 
 ## 四、项目结构
 
-A01_Broken_Access_Control/
-
-environment/
-Docker 靶场环境
-Flask Web 应用与数据库初始化
-
-exploit/
-红队自动化攻击工具
-登录、枚举、数据收集模块
-
-vulnerability/
-渗透测试报告（Markdown）
-
-screenshots/
-攻击过程证据截图
-
-README.md
-项目总体说明文档
-
+```
+A01_Broken_Access_Control
+│
+├── environment
+│   ├── app
+│   │   ├── static/...
+│   │   ├── templates/...
+│   │   ├── auth.py
+│   │   ├── routes.py
+│   │   ├── models.py
+│   │   ├── database.py
+│   │   ├── config.py
+│   │   └── app.py
+│   │
+│   ├── requirements/...
+│   ├── Dockerfile
+│   ├── docker-compose.yml
+│   └── init_db.py
+│
+├── exploit
+│   ├── exploit.py
+│   ├── auth.py
+│   ├── idor_attack.py
+│   └── privilege_escalation.py
+│
+├── vulnerability
+│   └── A01_Broken_Access_Control.md
+│
+├── screenshots/...
+│
+└── README.md
+```
 ---
 
 ## 五、环境部署
@@ -191,5 +204,3 @@ report.txt
 3. 使用 UUID 替代递增 ID
 4. Default Deny 策略
 5. 审计 API 访问日志
-
-（End of Project README）
