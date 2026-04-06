@@ -1,0 +1,17 @@
+<h2>Records Viewer</h2>
+
+<input id="rid" placeholder="Record ID">
+<button onclick="load()">Load</button>
+
+<pre id="out"></pre>
+
+<script>
+function load(){
+ fetch("/api/records/"+document.getElementById("rid").value)
+ .then(r=>r.json())
+ .then(d=>{
+    document.getElementById("out").innerText =
+        JSON.stringify(d,null,2);
+ });
+}
+</script>
