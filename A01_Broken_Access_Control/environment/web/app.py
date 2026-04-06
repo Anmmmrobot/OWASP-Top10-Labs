@@ -48,7 +48,7 @@ def get_record(rid):
         cur.execute("SELECT * FROM medical_records WHERE id=%s",(rid,))
         record = cur.fetchone()
 
-    # 没有权限验证（Broken Access Control）
+    # 无权限验证
     return jsonify(record)
 
 
